@@ -1,3 +1,5 @@
+<!-- test -->
+
 [![Netlify Status](https://api.netlify.com/api/v1/badges/8d09aec1-da21-4d06-ada5-ff15dcd5c04c/deploy-status)](https://app.netlify.com/sites/meltano-hub/deploys)
 
 ---
