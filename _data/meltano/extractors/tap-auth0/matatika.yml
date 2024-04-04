@@ -18,7 +18,7 @@ logo_url: /assets/logos/extractors/auth0.png
 maintenance_status: active
 name: tap-auth0
 namespace: tap_auth0
-pip_url: git+https://github.com/Matatika/tap-auth.git
+pip_url: git+https://github.com/Matatika/tap-auth0.git
 quality: gold
 repo: https://github.com/Matatika/tap-auth0
 settings:
