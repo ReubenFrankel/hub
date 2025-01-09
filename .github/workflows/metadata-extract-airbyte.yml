@@ -21,10 +21,13 @@ jobs:
       airbyte_matrix: ${{ steps.setmatrix_airbyte.outputs.airbyte_matrix }}
 
     steps:
-      - uses: actions/checkout@v4.2.1
+      - uses: actions/checkout@v4.2.2
+      - uses: astral-sh/setup-uv@v5
+        with:
+          version: ">=0.4.30"
 
       - name: Install hub-utils
-        run: pipx install git+https://github.com/meltano/hub-utils.git
+        run: uv tool install git+https://github.com/meltano/hub-utils.git@main
 
       - name: Get Variants List - Airbyte
         id: get-variants-list-airbyte
@@ -34,7 +37,7 @@ jobs:
         id: setmatrix_airbyte
         run: |
            matrixStringifiedObject="{\"include\": ${{ steps.get-variants-list-airbyte.outputs.VARIANTS_AIRBYTE }}}"
-           echo "::set-output name=airbyte_matrix::$matrixStringifiedObject"
+           echo "airbyte_matrix=$matrixStringifiedObject" >> $GITHUB_OUTPUT
 
   metadata_extract_airbyte_p1:
     name: Airbyte - Part 1 Metadata Extract 
@@ -69,7 +72,7 @@ jobs:
     permissions:
       id-token: write # This is required for requesting the JWT
     steps:
-      - uses: actions/checkout@v4.2.1
+      - uses: actions/checkout@v4.2.2
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4.0.2
@@ -81,9 +84,12 @@ jobs:
       - uses: actions/download-artifact@v3
         with:
           name: extractor--${{ matrix.source-name }}--airbyte.json
+      - uses: astral-sh/setup-uv@v5
+        with:
+          version: ">=0.4.30"
 
       - name: Install hub-utils
-        run: pipx install git+https://github.com/meltano/hub-utils.git
+        run: uv tool install git+https://github.com/meltano/hub-utils.git@main
 
       - name: Upload Metadata
         run: hub-utils upload-airbyte "/home/runner/work/hub/hub/_data/meltano/${{ matrix.plugin-name }}" extractor--${{ matrix.source-name }}--airbyte.json

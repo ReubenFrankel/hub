@@ -203,6 +203,7 @@ extractors:
   tap-fullstory: singer-io
   tap-ga4: meltanolabs
   tap-gainsightpx: widen
+  tap-geekbot: edgarrmondragon
   tap-genesys: airbyte
   tap-getlago: airbyte
   tap-getpocket: evelte
@@ -222,7 +223,7 @@ extractors:
   tap-google-directory: airbyte
   tap-google-pagespeed-insights: airbyte
   tap-google-play: edgarrmondragon
-  tap-google-search-console: singer-io
+  tap-google-search-console: meltanolabs
   tap-google-sheets: matatika
   tap-google-webfonts: airbyte
   tap-google-workspace-admin-reports: airbyte
@@ -490,6 +491,7 @@ extractors:
   tap-spacex-api: airbyte
   tap-spotify: matatika
   tap-spreadsheets-anywhere: ets
+  tap-sproutsocial: ella6882
   tap-square: hotgluexyz
   tap-ssb-klass: storebrand
   tap-stackexchange: meltanolabs
